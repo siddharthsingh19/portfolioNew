@@ -1,35 +1,71 @@
 import React from "react";
 import "./Home.css";
+import transition from "../../transition";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Home = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5, // Delay children animations
+        staggerChildren: 0.2, // Stagger children animations
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="home">
+    <motion.div
+      className="home"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="home-left">
-        <h1 className="side-effect">Ṧ</h1>
+        <motion.h1 variants={childVariants} className="side-effect">
+          Ṧ
+        </motion.h1>
       </div>
       <div className="home-right">
-        <h3 className="mb-1">Hello, I'm</h3>
+        <motion.h3 variants={childVariants} className="mb-1">
+          Hello, I'm
+        </motion.h3>
         <br />
         <h1 className="mb-1">
-          <span className="red ">Siddharth Singh</span>
+          <motion.span variants={childVariants} className="red ">
+            Siddharth Singh
+          </motion.span>
         </h1>
         <h2>
-          <span className="red ">Full-Stack Developer</span>
+          <motion.span variants={childVariants} className="red ">
+            Full-Stack Developer
+          </motion.span>
         </h2>
-        <h2>
+        <motion.h2 variants={childVariants}>
           Turning !deas into real life
           <br />
-          <span className="red">products</span> is my calling.
-        </h2>
-        <div className="home-socials">
+          <motion.span variants={childVariants} className="red">
+            products
+          </motion.span>{" "}
+          is my calling.
+        </motion.h2>
+        <motion.div variants={childVariants} className="home-socials">
           <FaGithub />
           <FaLinkedin />
-        </div>
-        <button className="btn home-right-btn">Hire me</button>
+        </motion.div>
+        <motion.button variants={childVariants} className="btn home-right-btn">
+          Hire me
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default Home;
+export default transition(Home);

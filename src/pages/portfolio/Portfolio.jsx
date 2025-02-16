@@ -1,9 +1,11 @@
 import React from "react";
+import { motion } from "framer-motion";
 import shakuntala from "/shakuntala.png";
 import baapu from "/baapu.png";
 import naiminath from "/naiminath.png";
 import "./Portfolio.css";
 import { FaArrowRight } from "react-icons/fa";
+import transition from "../../transition";
 const Portfolio = () => {
   const portfolioData = [
     {
@@ -30,36 +32,57 @@ const Portfolio = () => {
     // Add more portfolio items as needed
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5, // Delay children animations
+        staggerChildren: 0.2, // Stagger children animations
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div const className="portfolio inner-page">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="portfolio inner-page"
+    >
       <div className="portfolio-top">
-        <h1 className="fade">Portfolio</h1>
+        <motion.h1 variants={childVariants} className="fade">Portfolio</motion.h1>
         <div className="shift-up">
-          <h4>My Works</h4>
-          <h2 className="red">Portfolio</h2>
+          <motion.h4 variants={childVariants}>My Works</motion.h4>
+          <motion.h2 variants={childVariants} className="red">Portfolio</motion.h2>
         </div>
       </div>
       <div className="portfolio-bottom">
         <div className="portfolio-items">
           {portfolioData.map((item) => (
-            <div key={item.id} className="portfolio-item">
-              <img src={item.image} alt={item.title} />
-              <div className="portfolio-item-content">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
+            <motion.div variants={childVariants} key={item.id} className="portfolio-item">
+              <motion.img variants={childVariants} src={item.image} alt={item.title} />
+              <motion.div variants={childVariants} className="portfolio-item-content">
+                <motion.h3 variants={childVariants}>{item.title}</motion.h3>
+                <motion.p variants={childVariants}>{item.description}</motion.p>
+                <motion.a variants={childVariants} href={item.link} target="_blank" rel="noopener noreferrer">
                   View Project
-                </a>
-              </div>
-            </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
           ))}
-          <div className="more-works">
+          <motion.div variants={childVariants} className="more-works">
             View More Projects <FaArrowRight />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default Portfolio;
+export default transition(Portfolio);

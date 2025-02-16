@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Services.css";
+import { motion } from "framer-motion";
+import transition from "../../transition";
 
 const Services = () => {
   const handleServiceHover = (serviceId) => {
@@ -106,44 +108,78 @@ const Services = () => {
 
   const [activeService, setActiveService] = useState(servicesData[0]?.id); // Default to the first service
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.5, // Delay children animations
+        staggerChildren: 0.2, // Stagger children animations
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div const className="services inner-page">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="services inner-page"
+    >
       <div className="services-top">
-        <h1 className="fade">Services</h1>
+        <motion.h1 variants={childVariants} className="fade">
+          Services
+        </motion.h1>
         <div className="shift-up">
-          <h4>What I Offer</h4>
-          <h2 className="red">Services</h2>
+          <motion.h4 variants={childVariants}>What I Offer</motion.h4>
+          <motion.h2 variants={childVariants} className="red">
+            Services
+          </motion.h2>
         </div>
       </div>
       <div className="services-bottom">
         <div className="main-services-top">
           {servicesData.map((mainService) => (
-            <div
+            <motion.div
+              variants={childVariants}
               key={mainService.id}
               className={`main-service ${
                 activeService === mainService.id ? "active" : ""
               }`}
               onMouseEnter={() => handleServiceHover(mainService.id)}
             >
-              <h3>{mainService.name}</h3>
-            </div>
+              <motion.h3 variants={childVariants}>{mainService.name}</motion.h3>
+            </motion.div>
           ))}
         </div>
-        <div className="sub-services">
+        <motion.div variants={childVariants} className="sub-services">
           <div className="sub-services-list">
             {servicesData
               .find((service) => service.id === activeService)
               ?.services.map((subService) => (
-                <div key={subService.id} className="sub-service">
-                  <h4>{subService.name}</h4>
-                  <p>{subService.description}</p>
-                </div>
+                <motion.div
+                  variants={childVariants}
+                  key={subService.id}
+                  className="sub-service"
+                >
+                  <motion.h4 variants={childVariants}>
+                    {subService.name}
+                  </motion.h4>
+                  <motion.p variants={childVariants}>
+                    {subService.description}
+                  </motion.p>
+                </motion.div>
               ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
-export default Services;
+export default transition(Services);

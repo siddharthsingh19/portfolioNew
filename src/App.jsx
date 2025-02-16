@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
@@ -10,24 +10,23 @@ import Services from "./pages/services/Services";
 import Blogs from "./pages/blogs/Blogs";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Footer from "./components/Footer/Footer";
-
+import { AnimatePresence } from "framer-motion";
 function App() {
+  const location = useLocation();
+
   return (
     <>
-      <BrowserRouter>
-        <div className="footer-problem">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-          </Routes>
-          {/* <Footer /> */}
-        </div>
-      </BrowserRouter>
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+      </AnimatePresence>
     </>
   );
 }
