@@ -1,0 +1,41 @@
+/* The outer container masks the overflow */
+.tech-stack-marquee {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* The container holds two copies of the logos */
+  .tech-stack-container {
+    display: inline-flex;
+    /* The container will be twice as wide as one set of items */
+    animation: scroll 20s linear infinite;
+  }
+  
+  /* Each logo item */
+  .tech-stack-item {
+    flex: 0 0 auto;  /* Keep each item at its natural width */
+    margin-right: 20px; /* Adjust spacing as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Optional: style for the tech name */
+  .tech-name {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Keyframes for seamless scrolling */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Move left by 50% of the container's total width,
+         which corresponds to one full set of logos */
+      transform: translateX(-50%);
+    }
+  }
+  

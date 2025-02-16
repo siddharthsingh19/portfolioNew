@@ -1,0 +1,62 @@
+/* Services.css */
+
+/* Style for the main services section */
+.services {
+}
+
+.services-top {
+}
+
+.services-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.main-services-top {
+  display: flex;
+  gap: 20px;
+}
+
+.main-service {
+  cursor: pointer;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.main-service:hover {
+  background-color: var(--red); /* Light gray background on hover */
+}
+
+.main-service.active {
+  background-color: var(--red); /* Blue background for active main service */
+  color: var(--white); /* White text color for active main service */
+}
+
+.sub-services {
+  background-color: var(--accent);
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.sub-services-list {
+  border-left: 2px solid var(--red);
+  padding-left: 1rem;
+}
+
+.sub-service {
+  margin-bottom: 1rem;
+}
+
+.sub-service h4 {
+  margin-bottom: 0.5rem;
+  color: var(--red); /* Blue color for sub-service titles */
+}
+
+.sub-service p {
+  color: var(--white);
+}
