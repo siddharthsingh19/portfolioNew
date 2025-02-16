@@ -35,3 +35,7 @@ text-transform: uppercase;
     align-items: center;
     gap: 6rem;
 }
+
+.stack{
+    width: 100%;
+}
