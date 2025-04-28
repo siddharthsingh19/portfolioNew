@@ -3,6 +3,7 @@ import "./Home.css";
 import transition from "../../transition";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const containerVariants = {
@@ -60,9 +61,15 @@ const Home = () => {
           <FaGithub />
           <FaLinkedin />
         </motion.div>
-        <motion.button variants={childVariants} className="btn home-right-btn">
-          Hire me
-        </motion.button>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 0.5 }}
+        >
+          <NavLink to="/hire" className="btn home-right-btn">
+            Hire me
+          </NavLink>
+        </motion.div>
       </div>
     </motion.div>
   );

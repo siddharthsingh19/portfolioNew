@@ -11,6 +11,7 @@ import Blogs from "./pages/blogs/Blogs";
 import Portfolio from "./pages/portfolio/Portfolio";
 import Footer from "./components/Footer/Footer";
 import { AnimatePresence } from "framer-motion";
+import Hire from "./pages/hire/Hire";
 function App() {
   const location = useLocation();
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/hire" element={<Hire />} />
         </Routes>
       </AnimatePresence>
     </>

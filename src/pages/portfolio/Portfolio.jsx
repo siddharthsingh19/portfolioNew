@@ -84,7 +84,7 @@ const Portfolio = () => {
                 className="portfolio-item-content"
               >
                 <motion.h3 variants={childVariants}>{item.title}</motion.h3>
-                <motion.p variants={childVariants}>{item.description}</motion.p>
+                {/* <motion.p variants={childVariants}>{item.description}</motion.p> */}
                 <motion.a
                   variants={childVariants}
                   href={item.link}

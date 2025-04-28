@@ -81,9 +81,9 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
-            <button className="btn" onClick={handleNavClick}>
+            <NavLink to="/hire" className="btn" onClick={handleNavClick}>
               Hire me
-            </button>
+            </NavLink>
           </ul>
         </div>
       </motion.nav>
