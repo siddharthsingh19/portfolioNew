@@ -72,3 +72,19 @@
 .more-works:hover {
   transform: translateY(-5px); /* Lift on hover effect */
 }
+
+@media only screen and (max-width: 768px) {
+  .portfolio-items {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .portfolio-item {
+    width: 100%;
+  }
+
+  .more-works {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
