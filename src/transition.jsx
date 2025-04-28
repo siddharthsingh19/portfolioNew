@@ -12,9 +12,9 @@ const transition = (OgComponent) => {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       />
       <motion.h1
-        initial={{ x: "100%",y:"50%", opacity: 0 }}
-        animate={{ x: "-100%", y:"50%", opacity: 0 }}
-        exit={{ x: "20%", y:"30%", opacity: 1 }}
+        initial={{ x: "100%", y: "100%", opacity: 0 }}
+        animate={{ x: "-100%", y: "100%", opacity: 0 }}
+        exit={{ x: "20%", y: "30%", opacity: 1 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
         className="transition-text"
       >
