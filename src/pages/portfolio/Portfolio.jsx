@@ -11,23 +11,23 @@ const Portfolio = () => {
     {
       id: 1,
       title: "Dr. Shakuntala Ayurvedic Medical College",
-      description: "Description of Project 1.",
+      description: "College website",
       image: shakuntala, // Replace with actual image path
-      link: "https://example.com/project1", // Replace with project link
+      link: "https://drshakuntalaayush.in/", // Replace with project link
     },
     {
       id: 2,
       title: "Naiminath Ayurvedic Medical College",
-      description: "Description of Project 2.",
+      description: "College website",
       image: naiminath, // Replace with actual image path
-      link: "https://example.com/project2", // Replace with project link
+      link: "https://naiminathayurveda.org/", // Replace with project link
     },
     {
       id: 3,
       title: "BAPU Ayurvedic Medical College",
-      description: "Description of Project 3.",
+      description: "College website",
       image: baapu, // Replace with actual image path
-      link: "https://example.com/project2", // Replace with project link
+      link: "https://bamch.in/", // Replace with project link
     },
     // Add more portfolio items as needed
   ];
@@ -56,21 +56,41 @@ const Portfolio = () => {
       className="portfolio inner-page"
     >
       <div className="portfolio-top">
-        <motion.h1 variants={childVariants} className="fade">Portfolio</motion.h1>
+        <motion.h1 variants={childVariants} className="fade">
+          Portfolio
+        </motion.h1>
         <div className="shift-up">
           <motion.h4 variants={childVariants}>My Works</motion.h4>
-          <motion.h2 variants={childVariants} className="red">Portfolio</motion.h2>
+          <motion.h2 variants={childVariants} className="red">
+            Portfolio
+          </motion.h2>
         </div>
       </div>
       <div className="portfolio-bottom">
         <div className="portfolio-items">
           {portfolioData.map((item) => (
-            <motion.div variants={childVariants} key={item.id} className="portfolio-item">
-              <motion.img variants={childVariants} src={item.image} alt={item.title} />
-              <motion.div variants={childVariants} className="portfolio-item-content">
+            <motion.div
+              variants={childVariants}
+              key={item.id}
+              className="portfolio-item"
+            >
+              <motion.img
+                variants={childVariants}
+                src={item.image}
+                alt={item.title}
+              />
+              <motion.div
+                variants={childVariants}
+                className="portfolio-item-content"
+              >
                 <motion.h3 variants={childVariants}>{item.title}</motion.h3>
                 <motion.p variants={childVariants}>{item.description}</motion.p>
-                <motion.a variants={childVariants} href={item.link} target="_blank" rel="noopener noreferrer">
+                <motion.a
+                  variants={childVariants}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View Project
                 </motion.a>
               </motion.div>
