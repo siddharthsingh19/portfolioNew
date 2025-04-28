@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -20,6 +21,14 @@ const Navbar = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
+  const handleNavClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       <motion.nav
@@ -32,27 +41,49 @@ const Navbar = () => {
             <span className="red">Ṧ</span>!d.
           </NavLink>
         </motion.div>
-        <div className="nav-center">
+
+        {/* Hamburger icon - only visible on mobile */}
+        <div className="hamburger" onClick={toggleMobileMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        {/* Regular nav - hidden on mobile */}
+        <div className={`nav-center ${isMobileMenuOpen ? "open" : ""}`}>
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" onClick={handleNavClick}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/about" onClick={handleNavClick}>
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/services">Services</NavLink>
+              <NavLink to="/services" onClick={handleNavClick}>
+                Services
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/portfolio">Portfolio</NavLink>
+              <NavLink to="/portfolio" onClick={handleNavClick}>
+                Portfolio
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/blogs">Blog</NavLink>
+              <NavLink to="/blogs" onClick={handleNavClick}>
+                Blog
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact" onClick={handleNavClick}>
+                Contact
+              </NavLink>
             </li>
-            <button className="btn">Hire me</button>
+            <button className="btn" onClick={handleNavClick}>
+              Hire me
+            </button>
           </ul>
         </div>
       </motion.nav>

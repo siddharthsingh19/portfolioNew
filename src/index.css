@@ -106,3 +106,18 @@ ul {
   background-color: var(--red);
   color: var(--white);
 }
+
+@media only screen and (max-width: 768px) {
+  .fade{
+    font-size: 4.5rem;
+  }
+
+  .shift-up{
+    margin-top: -4rem;
+  }
+
+  .shift-up > h2 {
+    font-size: 3rem;
+    margin-top: -1rem;
+  }
+}

@@ -60,3 +60,54 @@
 .sub-service p {
   color: var(--white);
 }
+
+/* Bottom Drawer */
+.bottom-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--accent);
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px 12px 0 0;
+  padding: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* Drawer Header */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Close Button */
+.drawer-header button {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .services-bottom {
+    align-items: center;
+    margin-top: -5rem;
+  }
+
+  .main-services-top {
+    flex-direction: column;
+    gap: 0rem;
+  }
+
+  .main-service {
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

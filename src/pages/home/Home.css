@@ -70,6 +70,46 @@
 
 .side-effect{
   /* transform: rotate(90deg); */
-  font-size: 36rem;
+  font-size: 25rem;
   color: #0c1616;
+}
+
+@media only screen and (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    height: calc(100vh - 80px);
+  }
+
+  .home-left {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  .home-right {
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .home-right h1 {
+    font-size: 3rem;
+  }
+
+  .home-right h3 {
+    font-size: 1rem;
+  }
+
+  .home-right h2 {
+    font-size: 1.5rem;
+  }
+
+  .home-socials {
+    font-size: 1rem;
+  }
+
+  .home-right-btn {
+    font-size: 0.8rem;
+  }
 }
